@@ -1,22 +1,19 @@
-import pprint
 import numpy as np
 import time
 
-pp = pprint.PrettyPrinter(indent=4)
 size = 4
 
 
 def puzz_breadth_first(start, end):
-    """
-    Breadth First algorithm
-    Сопоставляет каждому расположению плиток сумму расстояний от текущей позиции каждой плитки до её целевой позиции
-    """
+    # Breadth First algorithm
+
     start_time = time.time()
 
     print("Breadth First algorithm")
     front = [[start]]
     expanded = []
     expanded_nodes = 0
+
     while front:
         i = 0
         for j in range(1, len(front)):  # minimum
@@ -36,22 +33,20 @@ def puzz_breadth_first(start, end):
         if endnode == end: break
     print("Expanded nodes:", expanded_nodes)
 
-    # pp.pprint(path)
     elapsed_time = time.time() - start_time
     print("Elapsed time: ", elapsed_time)
     return path
 
 
 def puzz_astar(start, end):
-    """
-    A* algorithm
-    Число ходов, требуемых для решения, не меньше, чем число плиток, находящихся не на своих местах
-    """
+    # A* algorithm
+
     start_time = time.time()
     print("A* algorithm")
     front = [[heuristic_1(start), start]]  # optional: heuristic_1
     expanded = []
     expanded_nodes = 0
+
     while front:
         i = 0
         for j in range(1, len(front)):
@@ -75,14 +70,12 @@ def puzz_astar(start, end):
 
     elapsed_time = time.time() - start_time
     print("Elapsed time: ", elapsed_time)
-    # pp.pprint(path)
     return path
 
 
 def moves(mat):
-    """
-    Returns a list of all possible moves
-    """
+    # Returns a list of all possible moves
+
     output = []
 
     m = eval(mat)
@@ -115,12 +108,12 @@ def moves(mat):
 
 
 def heuristic_1(puzz):
-    """
-    Counts the number of misplaced tiles
-    """
+    # Counts the number of misplaced tiles
+
     misplaced = 0
     compare = 0
     m = eval(puzz)
+
     for i in range(size):
         for j in range(size):
             if m[i][j] != compare:
@@ -130,11 +123,11 @@ def heuristic_1(puzz):
 
 
 def heuristic_2(puzz):
-    """
-    Manhattan distance
-    """
+    # Manhattan distance
+
     distance = 0
     m = eval(puzz)
+
     for i in range(size):
         for j in range(size):
             if m[i][j] == 0:
@@ -144,9 +137,11 @@ def heuristic_2(puzz):
 
 
 def str_to_int_array(string):
+
     if type(string[0]) == int:
         string = string[1:]
     toret = []
+
     for e in string:
         arr = []
         for x in e.split('],'):
@@ -160,6 +155,8 @@ def str_to_int_array(string):
 
 
 if __name__ == '__main__':
+
+    # Puzzle 5 x 5
     puzzle = str([[5, 1, 2, 3, 4],
                   [11, 6, 7, 8, 9],
                   [10, 0, 12, 13, 14],
@@ -173,10 +170,7 @@ if __name__ == '__main__':
                [20, 21, 22, 23, 24]])
     size = 5
 
-
-
-
-#1231231
+    # Puzzle 4 x 4
     puzzle = str([[4, 1, 2, 3],
                   [8, 5, 6, 7],
                   [9, 0, 10, 11],
@@ -188,6 +182,7 @@ if __name__ == '__main__':
                [12, 13, 14, 15]])
     size = 4
 
+    # # Puzzle 3 x 3
     # puzzle = str([[3, 1, 2],
     #               [4, 7, 5],
     #               [6, 0, 8]])
