@@ -43,7 +43,7 @@ def puzz_astar(start, end):
 
     start_time = time.time()
     print("A* algorithm")
-    front = [[heuristic_1(start), start]]  # optional: heuristic_1
+    front = [[heuristic_1(start), start]]  # optional: heuristic_2
     expanded = []
     expanded_nodes = 0
 
@@ -156,19 +156,19 @@ def str_to_int_array(string):
 
 if __name__ == '__main__':
 
-    # Puzzle 5 x 5
-    puzzle = str([[5, 1, 2, 3, 4],
-                  [11, 6, 7, 8, 9],
-                  [10, 0, 12, 13, 14],
-                  [15, 16, 17, 18, 19],
-                  [20, 21, 22, 23, 24]])
+    # # Puzzle 5 x 5
+    # puzzle = str([[5, 1, 2, 3, 4],
+    #               [11, 6, 7, 8, 9],
+    #               [10, 0, 12, 13, 14],
+    #               [15, 16, 17, 18, 19],
+    #               [20, 21, 22, 23, 24]])
 
-    end = str([[0, 1, 2, 3, 4],
-               [5, 6, 7, 8, 9],
-               [10, 11, 12, 13, 14],
-               [15, 16, 17, 18, 19],
-               [20, 21, 22, 23, 24]])
-    size = 5
+    # end = str([[0, 1, 2, 3, 4],
+    #            [5, 6, 7, 8, 9],
+    #            [10, 11, 12, 13, 14],
+    #            [15, 16, 17, 18, 19],
+    #            [20, 21, 22, 23, 24]])
+    # size = 5
 
     # Puzzle 4 x 4
     puzzle = str([[4, 1, 2, 3],
